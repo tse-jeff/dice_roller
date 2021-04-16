@@ -15,7 +15,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val rollButton: Button = findViewById(R.id.button)
-        rollButton.setOnClickListener { rollDice() }
+        rollButton.setOnClickListener {
+            rollDice()
+            findViewById<TextView>(R.id.textView2).text = "Click Roll to re-roll"
+        }
     }
 
     /**
@@ -25,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     private fun rollDice() {
         val dice = Dice(6)
         val diceRoll = dice.roll()
-        val resultTextView: TextView = findViewById(R.id.textView)
+        val resultTextView: TextView = findViewById(R.id.number)
         resultTextView.text = diceRoll.toString()
 
 //        This follow line allows for a pop up on the bottom of the screen
